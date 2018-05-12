@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>findZip.html</title>
+<style>
+div>ul>li {list-style: none;}
+div>ul>li>span{padding:5px;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(function(){ //$(document).ready(function(){});
+  var $divObj = $('div');
+  $divObj.on('click', 'ul>li', function(){
+	  /* var $arrObj = $(this).find('span');
+	  $arrObj.each(function(index, element){
+		  if($(element).attr("class") == 'zipcode'){
+			  
+		  }else{
+			  
+		  }
+	  }); */
+	  var zipcode = $(this).find('span.zipcode').html();
+	  var $otherArrObj = $(this).find('span').not('span.zipcode');
+	  var address1 = '';
+	  $otherArrObj.each(function(index, element){
+		  address1 += $(element).html();
+	  });	  
+	 //$('input[name=zipcode]').val(obj.code);
+	//	$('output.address1').html(obj.address1);
+	  $('input[name=zipcode]', opener.document).val(zipcode);
+	  $('output.address1', opener.document).html(address1);
+	  window.close(); //self.close();
+  });
+  var $btObj = $('button');  
+  $btObj.click(function(){	  
+	  var doro = $('input[type="search"]').val();
+	  if(doro.trim() == ''){
+		  alert('도로명주소를 입력하세요');
+		  $('input[type="search"]').focus();
+		  return false;
+	  }	  
+	  $.ajax({
+		  method:'POST',
+		  url: 'findzip.do',
+		  data: 'doro='+doro,
+		  success:function(data){				 
+			  var jsonArrObj = JSON.parse(data);
+			  $divObj.empty();
+			  var $ulObj = $('<ul></ul>');			  
+			  $(jsonArrObj).each(function(index, jsonObj){
+				  var $liObj = $('<li></li>');
+				  var $spanObj = $('<span class="zipcode"></span>');				  
+				  $spanObj.text(jsonObj.zipcode);
+				  $liObj.append($spanObj);
+				  
+				  $spanObj = $('<span class="sido"></span>');				  
+				  $spanObj.text(jsonObj.sido);
+				  $liObj.append($spanObj);
+				  
+				  $spanObj = $('<span class="sigungu"></span>');				  
+				  $spanObj.text(jsonObj.sigungu);
+				  $liObj.append($spanObj);
+				  
+				  $spanObj = $('<span class="eupmyun"></span>');				  
+				  $spanObj.text(jsonObj.eupmyun);
+				  $liObj.append($spanObj);
+				 
+				  $spanObj = $('<span class="doro"></span>');				  
+				  $spanObj.text(jsonObj.doro);
+				  $liObj.append($spanObj);
+				  
+				  $ulObj.append($liObj);
+			  });
+			  $divObj.append($ulObj);
+		  }
+	  });
+  });
+});
+</script>
+</head>
+<body>
+  <input type="search" name='doro' placeholder='도로명주소를 입력하세요'>
+  <button>검색</button>
+  <div class="result">    
+  </div>
+</body>
+</html>
