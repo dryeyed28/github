@@ -7,9 +7,11 @@ import dao.RepBoardDAOOracle;
 import vo.RepBoard;
 
 public class RepBoardService {
-	public RepBoardDAO service = new RepBoardDAOOracle();
+	public RepBoardDAO dao = new RepBoardDAOOracle();
 	public List<RepBoard> findAll(int page) throws Exception{
-		List<RepBoard> list = service.selectAll(page);
-		return list;
+		return dao.selectAll(page);
+	}
+	public int findCount() throws Exception{
+		return dao.selectCount();		
 	}
 }

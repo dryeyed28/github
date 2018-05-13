@@ -11,6 +11,7 @@ import vo.PCategory;
 import vo.Product;
 
 public class ProductDAOOracle implements ProductDAO {
+	
 	@Override
 	public List<Product> selectAll() throws Exception {
 		List<Product> list = new ArrayList<>();
@@ -117,6 +118,20 @@ public class ProductDAOOracle implements ProductDAO {
 		}finally {
 			MyConnection.close(rs, pstmt, con);
 		}
+	}
+	
+	public static void main(String[] args) {
+		ProductDAOOracle test = new ProductDAOOracle();
+		try {
+			List<Product> list  = test.selectAll();
+			for(Product p :list) {
+				System.out.println(p);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
+		
 	}
 
 }

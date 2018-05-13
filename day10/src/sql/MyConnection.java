@@ -15,7 +15,7 @@ public class MyConnection {
 		}
 	}
 	public static Connection getConnection() throws SQLException {
-		String url="jdbc:oracle:thin:@localhost:1521:xe";
+		String url="jdbc:oracle:thin:@localhost:1521:orcl";
 		String user="kitri";
 		String password="kitri";
 		return 

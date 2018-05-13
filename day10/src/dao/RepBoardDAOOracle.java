@@ -10,6 +10,25 @@ import sql.MyConnection;
 import vo.RepBoard;
 
 public class RepBoardDAOOracle implements RepBoardDAO {
+	
+	public int selectCount() throws Exception{
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String selectCountSQL = "SELECT COUNT(*) totalcnt FROM repboard";
+		
+		try {
+			con = MyConnection.getConnection();
+			pstmt = con.prepareStatement(selectCountSQL);
+			rs = pstmt.executeQuery();
+			
+			rs.next();
+			int totalCount = rs.getInt("totalcnt");
+			return totalCount;
+		} finally {
+			MyConnection.close(rs, pstmt, con);
+		}
+	}
 
 	@Override
 	public List<RepBoard> selectAll(int page) throws Exception {

@@ -79,7 +79,7 @@ public class RepBoard {
 	public void setBoard_viewcount(int board_viewcount) {
 		this.board_viewcount = board_viewcount;
 	}
-	public int level() {
+	public int getLevel() {
 		return level;
 	}
 	public void setLevel(int level) {
@@ -93,6 +93,4 @@ public class RepBoard {
 				+ ", board_password=" + board_password + ", board_viewcount=" + board_viewcount + ", level=" + level
 				+ "]";
 	}
-	
-	
 }

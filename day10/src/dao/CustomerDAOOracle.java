@@ -1,6 +1,5 @@
 package dao;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,7 +18,7 @@ public class CustomerDAOOracle implements CustomerDAO {
 		try {
 			con = sql.MyConnection.getConnection();
 			String insertSQL = 
-"INSERT INTO customer(id, pwd, name, zipcode, address) VALUES (?,?,?,?,?)";
+						"INSERT INTO customer(id, pwd, name, zipcode, address) VALUES (?,?,?,?,?)";
 			pstmt = con.prepareStatement(insertSQL);
 			pstmt.setString(1, c.getId());
 			pstmt.setString(2, c.getPwd());
@@ -87,16 +86,15 @@ public class CustomerDAOOracle implements CustomerDAO {
 	}
 	
 	public static void main(String[] args) {
-		CustomerDAO dao = new CustomerDAOOracle();
-		Customer c = new Customer();
-		String id= "id1";
+		CustomerDAOOracle test = new CustomerDAOOracle();
+		String id = "id1";
 		try {
-			c = dao.selectById(id);
+			Customer c = test.selectById(id);
+			System.out.println(c);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("커스토머 셀렉트 결과는 : "+c);
 	}
-
 }
+

@@ -4,7 +4,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
-<title>index.html</title>
+<title>index.jsp</title>
 <style>
 *{
   margin: 0px;
@@ -106,16 +106,6 @@ $(function(){
 		var classValue = $(this).attr('class');
 		$('section').empty();		
 		switch(classValue){
-		case 'board':
-			$('section').empty();	
-			$.ajax({
-				method:'GET',
-				url:'board.jsp',
-				success:function(data){
-					$('section').html(data);
-				}
-			});
-			break;
 		case 'signup':
 			$('section').empty();	
 			$.ajax({
@@ -211,13 +201,17 @@ $(function(){
 			break;
 		case 'board':
 			$('section').empty();
+			var page=1;
+			console.log("페이지값은 : " +page);
 			$.ajax({
-				url: 'repboardlist.do',
-				data: page=2,
-				success: function(data){
-					$('section').html(data.trim());
+				method:'GET',
+				url:'repboardlist.do',
+				data: 'page='+page,
+				success:function(data){
+					$('section').html(data);
 				}
 			});
+			break;
 		}//end switch
 		return false;
 	});//end (nav>ul li').click
