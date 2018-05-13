@@ -83,7 +83,7 @@ div.board_seq, div.parent_seq{
 		 if($(element).text() == '<%=pb.getCurrentPage()%>'){
 			 $(element).addClass('active');
 		 }
-	 }
+	 });
 	 
 	 $('button#btwrite').click(function(){
 		 $.ajax({

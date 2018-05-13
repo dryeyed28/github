@@ -69,10 +69,28 @@ public class RepBoardDAOOracle implements RepBoardDAO {
 
 	@Override
 	public void insertRepBoard(RepBoard board) throws Exception {
-
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		String insertRepBoardSQL = "INSERT INTO repboard(board_seq, parent_seq, board_subject, board_writer, board_contents, board_date, board_password, board_viewcount)\r\n" + 
+				"VALUES ((SELECT max(board_seq)+1\r\n" + 
+				"FROM repboard), 0, ?, ?, ?, SYSTIMESTAMP, ?, 0)"; 
+		
+		try {
+		con = MyConnection.getConnection();
+		pstmt = con.prepareStatement(insertRepBoardSQL);
+		
+		pstmt.setString(1, board.getBoard_subject());
+		pstmt.setString(2, board.getBoard_writer());
+		pstmt.setString(3, board.getBoard_content());
+		pstmt.setString(4, board.getBoard_password());
+		pstmt.executeQuery();
+		} finally {
+			MyConnection.close(pstmt, con);
+		}
 	}
 	public static void main(String[] args) {
-		RepBoardDAOOracle test = new RepBoardDAOOracle();
+		/*RepBoardDAOOracle test = new RepBoardDAOOracle();
 		int page = 1;
 		try {
 			List<RepBoard> list = test.selectAll(page);
@@ -80,6 +98,21 @@ public class RepBoardDAOOracle implements RepBoardDAO {
 				System.out.println(b);
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
+		}*/
+		
+		RepBoardDAOOracle test = new RepBoardDAOOracle();
+		RepBoard board = new RepBoard();
+		
+		board.setBoard_subject("1s");
+		board.setBoard_writer("1w");
+		board.setBoard_content("1c");
+		board.setBoard_password("1p");
+		
+		try {
+		test.insertRepBoard(board);
+		System.out.println("보드값은 : " + board);
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}

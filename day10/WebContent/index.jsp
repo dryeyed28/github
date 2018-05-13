@@ -66,6 +66,24 @@ nav a{
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 $(function(){
+	var page = 1;
+	
+	$('section').on('submit', 'form#formwrite', function(){
+		$.ajax({
+			url: 'repboardrwrite.do',
+			method: 'POST',
+			success: function(data){
+				console.log(data);
+				if(data.trim()=='1'){
+					var $triggerObj = $("nav>ul li.board");
+					$triggerObj.trigger('click');
+				}else if(data.trim()=='-1'){
+					alert("오류발생!");
+				}
+			}		
+		});		
+	});
+	
 	$('section').on('click', 'button#emptycart', function(){
 		$.ajax({
 			url:'emptycart.do',
@@ -201,14 +219,13 @@ $(function(){
 			break;
 		case 'board':
 			$('section').empty();
-			var page=1;
 			console.log("페이지값은 : " +page);
 			$.ajax({
 				method:'GET',
 				url:'repboardlist.do',
 				data: 'page='+page,
 				success:function(data){
-					$('section').html(data);
+					$('section').html(data.trim());
 				}
 			});
 			break;

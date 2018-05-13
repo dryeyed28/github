@@ -14,4 +14,7 @@ public class RepBoardService {
 	public int findCount() throws Exception{
 		return dao.selectCount();		
 	}
+	public void write(RepBoard board) throws Exception{
+		dao.insertRepBoard(board);
+	}
 }

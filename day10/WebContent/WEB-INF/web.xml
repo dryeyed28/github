@@ -185,4 +185,14 @@
     <servlet-name>RepBoardListServlet</servlet-name>
     <url-pattern>/repboardlist.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RepBoardWriteServlet</display-name>
+    <servlet-name>RepBoardWriteServlet</servlet-name>
+    <servlet-class>control.RepBoardWriteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RepBoardWriteServlet</servlet-name>
+    <url-pattern>/repboardwrite.do</url-pattern>
+  </servlet-mapping>
 </web-app>
