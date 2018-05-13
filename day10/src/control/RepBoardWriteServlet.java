@@ -16,7 +16,7 @@ import vo.RepBoard;
 public class RepBoardWriteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private RepBoardService service = new RepBoardService();
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String board_subject = request.getParameter("board_subject");
 		String board_writer = request.getParameter("board_writer");
 		String board_password = request.getParameter("board_password");
