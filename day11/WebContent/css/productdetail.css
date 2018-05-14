@@ -1,0 +1,57 @@
+@charset "UTF-8";
+*{
+   box-sizing: border-box;   
+ }
+ div.item{
+   border: 1px solid;
+   margin:2px;
+   padding:2px;
+   width: 60%;   
+   height: 60%;
+   position:relative;
+ } 
+ div.item>div.img{
+   float: left;
+   border: 1px solid;
+   margin:2px;
+   padding:2px;
+   width: 45%;
+   height:100%;
+ }
+ 
+ div.item>div.img>img{
+  width:100%;
+  height:100%;
+ }
+ div.item>div.info{
+   float: left;
+   width:50%;
+   height:100%;
+   border:1px dashed;
+ }
+ div.item>div.info>ul{
+   list-style: none;
+   padding:0px;
+   margin:0px;
+ }
+  div.item>div.choicecart{
+ 	clear: both;
+ 	display: none;
+ 	position: absolute;
+ 	top:150px;
+ 	left:50px;
+ 	width:80%;
+ 	height:100px;
+ 	background-color: gray;
+ 	border:1px solid;
+ }
+ 
+ @media screen and (min-width: 640px){
+   div.list>div.item{
+     float:left;
+   }                                
+   div.list>div.item:nth-child(2n+1){
+     border: 1px dotted;
+     clear:both;
+   }
+ }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$('button.append').click(function(){
+		var $divObj = $('#d1');
+		var $pObj = $('<p>P</p>');
+		$divObj.append($pObj);		
+	});
+	$('button.clear').click(function(){
+		var $divObj1 = $('#d1');	
+		$divObj1.empty();
+		
+	});
+	//$('#d1').on('click', 'p',function(){
+	$('#d1').one('click', 'p',function(){	
+		console.log('p clicked!');
+	});
+});
+</script>
+</head>
+<body>
+  <div id="d1"></div>
+  <button class='append'>추가</button>
+  <button class='clear'>제거</button>
+</body>
+</html>

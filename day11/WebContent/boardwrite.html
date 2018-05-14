@@ -1,0 +1,29 @@
+<script>
+$(function(){
+  $('form#formwrite').submit(function(){
+	  $.ajax({
+		  url:'repboardwrite.do',
+		  method:'post',
+		  data:$('form').serialize(),
+		  success:function(data){
+			  data = data.trim();
+			  if(data == '1'){ //글쓰기 성공
+				  alert('글쓰기 성공');
+				 var $triggerObj = $("nav>ul li.board");
+				 $triggerObj.trigger('click');
+			  }else if(data == '-1'){ //글쓰기 실패
+				 alert('글쓰기 실패'); 
+			  }
+		  }
+	  });
+	  return false;
+  });
+});
+</script>
+<form id="formwrite">
+  <label>제목</label><input name="board_subject"><br>
+  <label>작성자</label><input name="board_writer"><br>
+  <label>비밀번호</label><input type="password" name="board_password"><br>
+  <label>내용</label><textarea name="board_contents"></textarea><br>
+  <button>작성</button>
+</form>
