@@ -78,8 +78,8 @@ $(function(){ //$(document).ready(function(){});
 	  });
   });
   
-  $('body').keydown(function(e){
-	  if(e.whick==13) {
+  $('body').keydown(function(e){ //엔터키 + 클릭이벤트 동시에
+	  if(e.which==13) {
 		  $btObj.click();
 		  return false;
 	  }

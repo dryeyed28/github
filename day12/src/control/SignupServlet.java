@@ -37,7 +37,7 @@ public class SignupServlet extends HttpServlet {
 			result+="\"msg\": \"" + e.getMessage() + "\"";
 		}		
 		result += "}";
-		
+		request.setAttribute("result", result);
 		
 	}
 
