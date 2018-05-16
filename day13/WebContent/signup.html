@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>signup.html</title>
+<style>
+div.id>div.dup{
+  display:none;
+}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$('form').submit(function(){		
+		console.log($('form').serialize());
+		$.ajax({
+			url: 'signup.do',
+			method: 'POST',			
+			data: $('form').serialize(),
+			success:function(data){
+				//$('section').html(data);
+				var jsonObj = JSON.parse(data.trim());
+				if(jsonObj.status == '1'){ //가입성공
+					$('section').html('가입성공');
+				}else if(jsonObj.status == '-1'){
+					$('section').html('가입실패<br>'+jsonObj.msg);
+				}
+			}
+		});
+		return false;
+	});
+	
+	//중복확인
+	$('div.id>input[type=button]').click(function(){
+		$idObj = $('div.id>input[name=id]').val();
+		if($idObj != '') {
+			console.log("idObj값은 : "+$idObj);
+			console.log('중복확인버튼클릭 id='+$('div.id>input[name=id]').val());
+			$.ajax({
+				method:'post',
+				data:'id='+$('div.id>input[name=id]').val(),
+				url:'dupchk.do',
+				success:function(data){
+					//$('div.id>div.dup').html(data).css('color', 'red').show();
+					data = data.trim();
+					if(data == '1'){
+						var result = '사용가능한 ID입니다.';
+						$('div.id>div.dup').html(result).css('color', 'red').show();
+					}else if(data == '-1'){
+						var result = '이미 사용중인 ID입니다.'
+						$('div.id>div.dup').html(result).css('color', 'red').show();
+					}
+				}
+			});
+		} else if($idObj == '') { //아이디값에 빈값을 넣고 중복체크를 누른 경우
+			var result = '아이디를 입력해주세요.';
+			$('div.id>div.dup').html(result).css('color', 'red').show();
+		}
+	});
+	
+	$('div.id>input[name=id]').change(function(){
+		$('div.id>div.dup').html('').hide();
+	});
+    
+	//우편번호 검색
+	$('div.zip>input[type=button]').click(function(){
+		window.open('findZip.html', 'winzip', 'width=200px height=300');;
+	});
+});
+</script>
+
+</head>
+<body>
+<form>
+  <div class='id'>
+    <label>아이디</label><input type='text' name='id' required>
+    <input type='button' value='중복확인'><br>
+    <div class='dup'></div>    
+  </div>
+  
+  <label>비밀번호</label><input type='password' name='pwd' required><br>
+  <label>이름</label><input type='text' name='name' required><br>
+  <div class='zip'>
+    <label>주소</label>
+    <input type='text' name='zipcode' readonly>
+    <input type='button' value='우편번호검색'><br>
+    <output class='address1'></output><br>  
+    <input type='text' name='address2'><br>
+  </div>
+  <button>가입</button>
+</form>
+</body>
+</html>
