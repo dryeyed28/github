@@ -14,12 +14,10 @@ import vo.Product;
 public class ProductListController implements Controller {
 	
 	private ProductService service;
-	
+	public ProductListController() {}
 	public ProductListController(ProductService service) {
 		this.service = service;
 	}
-	
-	public ProductListController() {}
 	
 	public ProductService getService() {
 		return service;
@@ -69,5 +67,4 @@ public class ProductListController implements Controller {
 		
 		return forwardURL;
 	}
-
 }

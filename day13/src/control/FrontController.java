@@ -126,6 +126,9 @@ public class FrontController extends HttpServlet {
 						} else if("service.OrderService".equals(m.getParameterTypes()[0].getName())) {
 							m.invoke(obj, orderService);
 							break;
+						} else if("service.repboardService".equals(m.getParameterTypes()[0].getName())) {
+							m.invoke(obj, repboardService);
+							break;
 						}
 					}
 				}
@@ -145,8 +148,9 @@ public class FrontController extends HttpServlet {
 							obj = constructor.newInstance(zipService);
 						}else if("service.OrderService".equals(constructor.getParameters()[0].getType().getName())) {
 							obj = constructor.newInstance(orderService);
+						}else if("service.repboardService".equals(constructor.getParameterTypes()[0].getName())) {
+							obj = constructor.newInstance(repboardService);
 						}
-						break;
 					}
 				}
 			}
