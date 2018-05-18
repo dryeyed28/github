@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 	<div class="col-lg-12">
-		<div class="container" style="padding-top: 100px;">
+		<div class="container-fluid" style="padding-top: 150px;">
 		  <form class="boardSubmit">
 		    <table class="table table-bordered">
 		      <tr>

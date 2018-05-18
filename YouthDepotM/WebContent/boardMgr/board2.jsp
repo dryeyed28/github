@@ -25,7 +25,7 @@
 		</div>
         <!-- /.panel-heading -->
       <div class="panel-body">
-		<table width="100%" class="table table-bordered table-hover" id="dataTables-example">
+		<table class="table table-bordered table-hover" id="dataTables-example">
            <thead>
               <tr>
             	<th><input type="checkbox"></th>
@@ -67,8 +67,8 @@
         <a class="btn btn-default">이동</a>
       </div>
       <hr>
-      <input type="button" value="글쓰기" style="borderRight">&nbsp;&nbsp;
-      <input type="button" value="수정" style="borderRight">
+      <button id="edit" onclick="location.href='edit.jsp'" class="btn btn-outline btn-primary">글쓰기</button>&nbsp;&nbsp;
+      <button class="btn btn-outline btn-primary">수정</button>
 	  </div>
       <!-- /.panel-body -->
       </div>
