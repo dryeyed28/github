@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@include file="../template/top.jsp"%>
 <%@include file="../template/aside.jsp"%>
-
+<head>
 <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
 <script>
@@ -39,11 +39,12 @@ $(document).ready(function() {
       });
 });
 </script>
-
+</head>
+<body>
 <div id="page-wrapper">
   <div class="row">
 	<div class="col-lg-12">
-		<div class="container" style="padding-top: 100px;">
+		<div class="container-fluid" style="padding-top: 50px;">
 		  <form class="boardSubmit" method="post" enctype="multipart/form-data">
 		    <table class="table table-bordered" style="width: 100%;">
 		      <tr>
@@ -76,3 +77,4 @@ $(document).ready(function() {
 	</div>
   </div>
 </div>
+</body>

@@ -21,7 +21,7 @@
 	<div class="col-lg-12">
 	  <div class="panel panel-default">
 		<div class="panel-heading">
-			회원정보
+			회원정보 관리
 		</div>
         <!-- /.panel-heading -->
         

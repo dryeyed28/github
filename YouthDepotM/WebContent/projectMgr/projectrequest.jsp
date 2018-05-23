@@ -135,12 +135,13 @@
               </tr>
            </tbody>
         </table>
-      <hr>
-      <div class="btn-center" style="text-align: center">
-        <a class="btn btn-default btn-lg btn-outline btn-primary">프로젝트 삭제</a>
-        <a class="btn btn-default btn-lg btn-outline btn-primary">게시판 삭제</a>
+        <hr>
+      <div class="btn-center" style="text-align: right">
+        <button class="btn btn-outline btn-primary">자세히 보기</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-primary">확인</button>&nbsp;
+        <button class="btn btn-primary">삭제</button>
       </div>
-
 	  </div>
       <!-- /.panel-body -->
       </div>
