@@ -9,6 +9,20 @@
         });
     });
 </script>
+<script>
+$(function() {
+	$('button#modify').click(function() {
+		$.ajax({
+			url:"memModify.jsp",
+			success: function(data){ 
+				$("div#page-wrapper").empty();
+				$('div#page-wrapper').html(data.trim());		
+			}
+		});
+		return false;
+	});
+});
+</script>
 <body>
 <div id="page-wrapper">
   <div class="row">
@@ -21,7 +35,7 @@
 	<div class="col-lg-12">
 	  <div class="panel panel-default">
 		<div class="panel-heading">
-			회원정보
+			회원정보 관리
 		</div>
         <!-- /.panel-heading -->
         
@@ -34,7 +48,7 @@
                 <th>아이디</th>
                 <th>비밀번호</th>
                 <th>이름</th>
-                <th>휴대폰번호</th>
+                <th>전화번호</th>
                 <th>이메일주소</th>
                 <th>가입일</th>
                 <th>탈퇴일</th>
@@ -52,7 +66,7 @@
                 <td>rlxo1@naver.com</td>
                 <td>2018/05/11</td>
                 <td></td>
-                <td>Y</td>
+                <td>투자</td>
             </tr>
             <tr>
             	<td><input type="checkbox"></td>
@@ -64,7 +78,7 @@
                 <td>dlsdh1@daum.net</td>
                 <td>2017/05/11</td>
                 <td></td>
-                <td>N</td>
+                <td>리워드</td>
             </tr>
             <tr>
             	<td><input type="checkbox"></td>
@@ -76,18 +90,14 @@
                 <td>null</td>
                 <td>2017/05/10</td>
                 <td>2018/05/10</td>
-                <td>N</td>
+                <td>None</td>
             </tr>
            </tbody>
         </table>
       <br>
       <div class="btn-member" style="text-align: right">
-        <button type="button" class="btn btn-outline btn-primary">회원 수정</button>
-        <button type="button" class="btn btn-outline btn-danger">회원 탈퇴</button>
-      </div>
-      <hr>
-      <div class="btn-right" style="text-align: right">
-        <button type="button" class="btn btn-outline btn-primary">창고지기</button>
+        <button id="modify" class="btn btn-outline btn-primary">회원 수정</button>
+        <button id="del" class="btn btn-outline btn-danger">회원 탈퇴</button>
       </div>
 
 	  </div>

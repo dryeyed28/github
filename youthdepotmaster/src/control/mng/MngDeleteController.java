@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import control.YouthDepotController;
 
-public class MngDeletController implements YouthDepotController {
+public class MngDeleteController implements YouthDepotController {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {

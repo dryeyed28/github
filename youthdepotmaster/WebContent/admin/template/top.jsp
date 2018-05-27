@@ -170,8 +170,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> 설정</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="../pages/login.html"><i class="fa fa-sign-out fa-fw"></i> 로그인</a>
-                        <li><a href="../pages/index.jsp"><i class="fa fa-sign-out fa-fw"></i> 로그아웃</a>
+                        <li><a href="../pages/login.html"><i class="fa fa-sign-out fa-fw"></i> 로그아웃</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

@@ -154,7 +154,7 @@ public class YouthDepotFrontControllerServlet extends HttpServlet {
 			String redirectURL = 
 					forwardURL.substring("redirect:".length());
 			System.out.println("redirectURL:" + redirectURL);
-			response.sendRedirect(redirectURL);
+			response.encodeRedirectURL(redirectURL);
 			if (redirectURL.trim().equals("")) {//재요청
 				redirectURL = "/";
 			}
