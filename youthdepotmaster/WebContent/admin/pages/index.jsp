@@ -9,7 +9,30 @@
 <script src="../vendor/raphael/raphael.min.js"></script>
 <script src="../vendor/morrisjs/morris.min.js"></script>
 <script src="../data/morris-data.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(function(){
+	<%--li태그 자손중에 a태그를 찾아라--%>
+	$("ul.nav in>li").click(function(){
+		var classValue = $(this).attr("class");
+		$("section").empty();
+		switch(classValue) {
+		case "fa fa-member fa-fw":
+			$.ajax({
+				method: "POST",
+				url: "member.do",
+				success: function(data){
+					$("section").html(data);
+				}
+			});
+		}
+	});
+	
+	$.ajax({
+		
+	});
+});
+</script>
 <section>
 <div id="page-wrapper">
      <div class="row">

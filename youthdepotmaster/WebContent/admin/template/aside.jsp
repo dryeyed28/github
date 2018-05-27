@@ -22,10 +22,10 @@ String root = request.getContextPath();
                         <a href="<%=root%>/admin/pages/index.jsp"><i class="fa fa-dashboard fa-fw"></i> home</a>
                     </li>
                     <li>
-                        <a href="<%=root%>/admin/pages/member.jsp"><i class="fa fa-table fa-fw"></i>회원관리</a>
+                        <a href="<%=root%>/admin/pages/member.jsp"><i class="fa fa-member fa-fw"></i>회원관리</a>
                     </li>
                     <li>
-                        <a href="<%=root%>/admin/pages/projectrequest.jsp"><i class="fa fa-table fa-fw"></i>프로젝트 신청관리</a>
+                        <a href="<%=root%>/admin/pages/projectrequest.jsp"><i class="fa fa-table2 fa-fw"></i>프로젝트 신청관리</a>
                     </li>
                     <li>
                         <a href="<%=root%>/admin/pages/projectrequestcontent.jsp"><i class="fa fa-edit fa-fw"></i>프로젝트 신청서</a>
@@ -54,7 +54,7 @@ String root = request.getContextPath();
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-table fa-fw"></i> 결제현황 관리<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-table3 fa-fw"></i> 결제현황 관리<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="<%=root%>/admin/payMng/totalpay.jsp">전체결제 관리</a>
@@ -68,7 +68,7 @@ String root = request.getContextPath();
                         </ul>
                     </li>
                     <li>
-                        <a href="<%=root%>/admin/pages/morris.jsp"><i class="fa fa-table fa-fw"></i>통계</a>
+                        <a href="<%=root%>/admin/pages/morris.jsp"><i class="fa fa-table4 fa-fw"></i>통계</a>
                     </li>
                 </ul>
             </div>
