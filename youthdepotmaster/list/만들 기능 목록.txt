@@ -1,0 +1,50 @@
+공통기능
+검색, 수정, 삭제, 페이지넘기기, 보여주기, 저장하기
+
+검색 - 서동환
+UserBoardSerchController.java
+MngSerchController.java
+RewardSerchController.java
+UserBoardSerchController.java
+RewardLoadMoreController.java
+MngShowNumController.java
+SpamListCategoryController.java
+RewardSerchCategoryController.java
+
+수정 - 강전욱
+MngUpdateController.java
+MngUpdatePageController.java
+RewardCommentUpdateController.java
+UserBoradUpdateController.java
+UserBoardViewController.java
+
+{ -김조운
+   삭제
+   MngDeletController.java
+   RewardCommentDeletController.java
+
+   페이지넘기기
+   MngListPageController.java
+   RewardNewsPageController.java
+   UserBoardListPageController.java
+}
+
+보여주기 -최은정
+MngDetailController.java
+MngListController.java
+IndexListController.java//amdin
+RewardListController.java
+PayListController.java
+PayaddressController.java
+RewardViewController.java
+IndexListController.java//user
+UserBoardViewController.java
+UserBoardListController.java
+
+저장하기 - 주현우
+MngAddController.java
+MngMakeController.java
+RewardCommentInsertController.java
+PayCheckController.java
+UserBoardWrietController.java
+RewardInsertController.java

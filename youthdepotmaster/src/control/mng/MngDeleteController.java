@@ -28,7 +28,7 @@ public class MngDeleteController implements YouthDepotController {
 //		// spam.jsp 삭제버튼
 //		// db에 delet
 //		// ajax요청
-//		String forwardURL = "sapmdeletrslt.jsp";
+//		String forwardURL = "spamdeletrslt.jsp";
 //		return forwardURL;
 //		// Member.jsp 에서 삭제버튼
 //		// db에 delet

@@ -137,7 +137,7 @@
         </table>
       <hr>
       <div class="btn-center" style="text-align: center">
-        <a class="btn btn-default btn-lg btn-outline btn-primary">프로젝트 삭제</a>
+        <a class="btn btn-default btn-lg btn-outline btn-primary" id="projectdelet">프로젝트 삭제</a>
         <a class="btn btn-default btn-lg btn-outline btn-primary">게시판 삭제</a>
       </div>
 

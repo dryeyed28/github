@@ -13,14 +13,14 @@ public class Member {
 	private int mem_sex;
 	private Date mem_register_dateTime;
 	private Date mem_lastLogin_dateTime;
-	private int mem_keeper;
+	private int mem_treasurer;
 	private int mem_passion;
 	public Member() {
 		super();
 	}
 	public Member(int mem_id, String mem_userId, String mem_email, String mem_password, String mem_userName,
 			String mem_nickName, String mem_phone, int mem_sex, Date mem_register_dateTime, Date mem_lastLogin_dateTime,
-			int mem_keeper, int mem_passion) {
+			int mem_treasurer, int mem_passion) {
 		super();
 		this.mem_id = mem_id;
 		this.mem_userId = mem_userId;
@@ -32,7 +32,7 @@ public class Member {
 		this.mem_sex = mem_sex;
 		this.mem_register_dateTime = mem_register_dateTime;
 		this.mem_lastLogin_dateTime = mem_lastLogin_dateTime;
-		this.mem_keeper = mem_keeper;
+		this.mem_treasurer = mem_treasurer;
 		this.mem_passion = mem_passion;
 	}
 	public int getMem_id() {
@@ -95,11 +95,11 @@ public class Member {
 	public void setMem_lastLogin_dateTime(Date mem_lastLogin_dateTime) {
 		this.mem_lastLogin_dateTime = mem_lastLogin_dateTime;
 	}
-	public int getMem_keeper() {
-		return mem_keeper;
+	public int getMem_treasurer() {
+		return mem_treasurer;
 	}
-	public void setMem_keeper(int mem_keeper) {
-		this.mem_keeper = mem_keeper;
+	public void setMem_treasurer(int mem_treasurer) {
+		this.mem_treasurer = mem_treasurer;
 	}
 	public int getMem_passion() {
 		return mem_passion;
@@ -113,7 +113,7 @@ public class Member {
 		return "Member [mem_id=" + mem_id + ", mem_userId=" + mem_userId + ", mem_email=" + mem_email
 				+ ", mem_password=" + mem_password + ", mem_username=" + mem_userName + ", mem_nickName=" + mem_nickName
 				+ ", mem_phone=" + mem_phone + ", mem_sex=" + mem_sex + ", mem_register_dateTime="
-				+ mem_register_dateTime + ", mem_lastLogin_dateTime=" + mem_lastLogin_dateTime + ", mem_keeper="
-				+ mem_keeper + ", mem_passion=" + mem_passion + "]";
+				+ mem_register_dateTime + ", mem_lastLogin_dateTime=" + mem_lastLogin_dateTime + ", mem_treasurer="
+				+ mem_treasurer + ", mem_passion=" + mem_passion + "]";
 	}
 }

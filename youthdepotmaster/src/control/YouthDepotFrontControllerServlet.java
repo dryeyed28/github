@@ -14,11 +14,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.RewardService;
+
 
 
 public class YouthDepotFrontControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Properties env;
+	private RewardService RewardService;
 	public YouthDepotFrontControllerServlet() {}
 	
 	public void init() throws ServletException {
@@ -71,11 +74,11 @@ public class YouthDepotFrontControllerServlet extends HttpServlet {
 				Method[] methods = clazz.getDeclaredMethods();
 				for(Method m: methods) {
 					String methodName = m.getName();
-					/*if(methodName.startsWith("set") && m.getParameterCount()==1) {
-						if("service.ProductService".equals(m.getParameterTypes()[0].getName())){
-							m.invoke(obj, productService);
+					if(methodName.startsWith("set") && m.getParameterCount()==1) {
+						if("service.RewardService".equals(m.getParameterTypes()[0].getName())){
+							m.invoke(obj, RewardService);
 							break;
-						}else if("service.CustomerService".equals(m.getParameterTypes()[0].getName())){
+						}/*else if("service.CustomerService".equals(m.getParameterTypes()[0].getName())){
 							m.invoke(obj, productService);
 							break;
 						}else if("service.ZipService".equals(m.getParameterTypes()[0].getName())){
@@ -87,8 +90,8 @@ public class YouthDepotFrontControllerServlet extends HttpServlet {
 						}else if("service.RepBoardService".equals(m.getParameterTypes()[0].getName())){
 							m.invoke(obj, repBoardService);
 							break;
-						}
-					}*/
+						}*/
+					}
 				}
 				
 			//생성자갯수가 2개이상인 경우
@@ -96,25 +99,25 @@ public class YouthDepotFrontControllerServlet extends HttpServlet {
 			}else if(constructors.length > 1) {
 				//매개변수가 1개이고
 				//매개변수의 타입이 ProductService타입인 경우
-//				for(Constructor constructor:constructors) {
-//					if(constructor.getParameterCount() == 1) {
-//						if("service.ProductService".equals(constructor.getParameters()[0].getType().getName())){
-//							obj = constructor.newInstance(productService);
-//
-//						}else if("service.CustomerService".equals(constructor.getParameters()[0].getType().getName())){
-//							obj = constructor.newInstance(customerService);
-//							
-//						}else if("service.ZipService".equals(constructor.getParameters()[0].getType().getName())){
-//							obj = constructor.newInstance(zipService);
-//							
-//						}else if("service.OrderService".equals(constructor.getParameters()[0].getType().getName())){
-//							obj = constructor.newInstance(orderService);
-//						}else if("service.RepBoardService".equals(constructor.getParameters()[0].getType().getName())){
-//							obj = constructor.newInstance(repBoardService);
-//						}
-//						break;
-//					}
-//				}
+				for(Constructor constructor:constructors) {
+					if(constructor.getParameterCount() == 1) {
+						if("service.RewardService".equals(constructor.getParameters()[0].getType().getName())){
+							obj = constructor.newInstance(RewardService);
+
+						}/*else if("service.CustomerService".equals(constructor.getParameters()[0].getType().getName())){
+							obj = constructor.newInstance(customerService);
+							
+						}else if("service.ZipService".equals(constructor.getParameters()[0].getType().getName())){
+							obj = constructor.newInstance(zipService);
+							
+						}else if("service.OrderService".equals(constructor.getParameters()[0].getType().getName())){
+							obj = constructor.newInstance(orderService);
+						}else if("service.RepBoardService".equals(constructor.getParameters()[0].getType().getName())){
+							obj = constructor.newInstance(repBoardService);
+						}
+						break;*/
+					}
+				}
 			}
 			//execute메서드 호출방법 1
 			/*for(Method m: methods) {

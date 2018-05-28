@@ -23,5 +23,18 @@ public class MemberService {
 		return member;
 	}
 	
+	public int findCount() throws Exception{
+		//멤버테이블 행수 출력
+		return dao.selectCount();
+	}
 	
+	/*public static void main(String[] args) {
+		MemberService service = new MemberService();
+		try {
+			List<Member> list = service.findByAll();
+			System.out.println("findByAll() 결과 : " + list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}*/
 }
